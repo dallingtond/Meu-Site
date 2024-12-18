@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COCIELO & TATA - Surpresa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        #initialImage {
+            width: 200px;
+            height: auto;
+            border-radius: 15px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        #carouselButton {
+            background-color: #FF0000;
+            color: white;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            animation: pulse 1.5s infinite;
+            margin-top: 30px;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        #carouselButton:hover {
+            background-color: #D10000;
+        }
+
+        /* Animação para a imagem de corações */
+        #heartImage {
+            width: 120px; /* Ajustando o tamanho da imagem de coração */
+            height: auto;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        #carousel {
+            margin-top: 20px;
+            position: relative;
+            width: 90%;
+            max-width: 400px;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 15px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: none;
+        }
+
+        .dedicacao {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #FFD700;
+        }
+
+        #audioPlayer {
+            margin-top: 20px;
+        }
+
+        .couple-names {
+            font-size: 35px;
+            color: red;
+            margin-top: 20px;
+        }
+
+        .couple-names span {
+            font-size: 40px;
+        }
+
+        .time-info {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .time-info div {
+            background-color: #333;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 10px;
+            font-size: 20px;
+            width: 45%;
+            text-align: center;
+        }
+
+        .time-info .emoji {
+            margin-right: 10px;
+        }
+
+        /* Estilos para o vídeo */
+        #youtubeVideo {
+            margin-top: 20px;
+            margin-bottom: 50px;
+            width: 90%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Estilos para o botão de navegação manual */
+        #nextButton {
+            margin-top: 20px;
+            background-color: #FF0000;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 15px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        #nextButton:hover {
+            background-color: #D10000;
+        }
+
+        /* Estilo para o botão de navegação do carrossel */
+        #nextButtonCarousel {
+            margin-top: 10px; /* Ajuste para mais próximo do carrossel */
+            background-color: #FF0000;
+            color: white;
+            padding: 5px;
+            border: none;
+            border-radius: 50%;
+            font-size: 20px; /* Reduzi o tamanho da seta */
+            cursor: pointer;
+        }
+
+        #nextButtonCarousel:hover {
+            background-color: #D10000;
+        }
+
+        /* Estilo para a linha horizontal */
+        .separator {
+            border-top: 2px solid #FF0000; /* Linha vermelha */
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        /* Linha após a dedicatória */
+        .separator-bottom {
+            border-top: 2px solid #FF0000; /* Linha vermelha */
+            margin: 20px auto;
+            width: 80%;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Página Inicial -->
+    <div class="container" id="page1">
+        <img id="initialImage" src="foto4.jpg" alt="Foto do Casal Inicial">
+        <button id="carouselButton">Surpresa</button>
+        <!-- Imagem de corações com animação -->
+        <img id="heartImage" src="pag1.png" alt="Corações">
+    </div>
+
+    <!-- Página 2: Conteúdo Principal -->
+    <div class="container" id="page2" style="display: none;">
+        <!-- Nomes do Casal -->
+        <div class="couple-names">
+            <span>❤️COCIELO</span> & <span>TATA❤️</span>
+        </div>
+
+        <!-- Carrossel de Imagens -->
+        <div id="carousel">
+            <img src="foto1.jpg" alt="Foto do Casal 1" class="carousel-item">
+            <img src="foto2.jpg" alt="Foto do Casal 2" class="carousel-item">
+            <img src="foto3.jpg" alt="Foto do Casal 3" class="carousel-item">
+            <img src="foto4.jpg" alt="Foto do Casal 4" class="carousel-item">
+        </div>
+
+        <!-- Botão de Navegação Manual (Pequeno e com seta) -->
+        <button id="nextButtonCarousel">→</button>
+
+        <!-- Linha Horizontal entre Carrossel e Dedicação -->
+        <div class="separator"></div>
+
+        <!-- Dedicação -->
+        <div class="dedicacao">
+            <p>Essa é a nossa história! Que venham mais momentos inesquecíveis! ❤️</span> Antes mesmo de imaginarmos esse encontro, ele já tinha sido escrito por Deus. E assim como todos os seus planos, nosso amor foi feito para durar. 🙌</p>
+        </div>
+
+        <!-- Linha após a dedicatória -->
+        <div class="separator-bottom"></div>
+
+        <!-- Frase "Te amo e por isso estou ao seu lado desde:" -->
+        <p style="font-size: 22px; color: #FFD700;">Te amo e por isso estou ao seu lado desde:</p>
+
+        <!-- Informações sobre o tempo juntos -->
+        <div class="time-info">
+            <div>
+                <span class="emoji">💍</span>
+                <span id="years">0</span> Anos
+            </div>
+            <div>
+                <span class="emoji">⌛</span>
+                <span id="months">0</span> Meses
+            </div>
+            <div>
+                <span class="emoji">📅</span>
+                <span id="days">0</span> Dias
+            </div>
+            <div>
+                <span class="emoji">⏰</span>
+                <span id="hours">0</span> Horas
+            </div>
+            <div>
+                <span class="emoji">⏳</span>
+                <span id="minutes">0</span> Minutos
+            </div>
+            <div>
+                <span class="emoji">🕑</span>
+                <span id="seconds">0</span> Segundos
+            </div>
+        </div>
+
+        <!-- Frase antes do vídeo -->
+        <p style="font-size: 22px; color: #FFD700; margin-top: 30px;">Essa música lembra você e nossa história.</p>
+
+        <!-- Vídeo do YouTube -->
+        <div id="youtubeVideo">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/XXXX" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script>
+        // Função para calcular a diferença de datas
+        function calculateTimeTogether(startDate) {
+            const currentDate = new Date();
+            const diffTime = currentDate - startDate;
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            const diffMonths = Math.floor(diffDays / 30);
+            const diffYears = Math.floor(diffDays / 365);
+            const diffHours = Math.floor((diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const diffMinutes = Math.floor((diffTime % (1000 * 60 * 60)) / (1000 * 60));
+            const diffSeconds = Math.floor((diffTime % (1000 * 60)) / 1000);
+
+            // Atualizando os valores na página
+            document.getElementById('years').textContent = diffYears;
+            document.getElementById('months').textContent = diffMonths;
+            document.getElementById('days').textContent = diffDays;
+            document.getElementById('hours').textContent = diffHours;
+            document.getElementById('minutes').textContent = diffMinutes;
+            document.getElementById('seconds').textContent = diffSeconds;
+        }
+
+        // Definindo a data de início do relacionamento
+        const startDate = new Date("2020-06-15");
+
+        // Chama a função para calcular o tempo juntos
+        setInterval(() => calculateTimeTogether(startDate), 1000);
+
+        // Transição para a segunda página
+        document.getElementById('carouselButton').addEventListener('click', () => {
+            document.getElementById('page1').style.display = 'none';
+            document.getElementById('page2').style.display = 'block';
+            startCarousel();
+        });
+
+        // Carrossel Automático
+        let currentImageIndex = 0;
+        const carouselImages = document.querySelectorAll('.carousel-item');
+        const totalImages = carouselImages.length;
+
+        // Exibe a primeira imagem
+        carouselImages[currentImageIndex].style.display = 'block';
+
+        function showImage(index) {
+            carouselImages.forEach((img, i) => {
+                img.style.display = i === index ? 'block' : 'none';
+            });
+        }
+
+        function startCarousel() {
+            // Atraso de 2 segundos antes de iniciar a troca automática de fotos
+            setTimeout(() => {
+                setInterval(() => {
+                    currentImageIndex = (currentImageIndex + 1) % totalImages;
+                    showImage(currentImageIndex);
+                }, 2000); // Avança a cada 2 segundos
+            }, 2000); // Atraso de 2 segundos
+        }
+
+        // Função para avançar as imagens manualmente
+        document.getElementById('nextButtonCarousel').addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex + 1) % totalImages;
+            showImage(currentImageIndex);
+        });
+    </script>
+</body>
+</html>
+
